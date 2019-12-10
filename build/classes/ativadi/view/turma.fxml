@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="564.0" prefWidth="758.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="ativadi.controler.TurmaController">
+    <stylesheets>
+        <URL value="@turma.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="btNovaTurma" layoutX="645.0" layoutY="54.0" mnemonicParsing="false" onAction="#cadastrarTurma" text="Nova Turma" />
+      <TableView fx:id="tableview" layoutX="24.0" layoutY="92.0" prefHeight="200.0" prefWidth="702.0">
+        <columns>
+          <TableColumn fx:id="col_codigo" prefWidth="75.0" text="Codigo" />
+          <TableColumn fx:id="col_professor" prefWidth="135.0" text="Professor" />
+            <TableColumn fx:id="col_ano" prefWidth="169.0" text="Ano" />
+            <TableColumn fx:id="col_semestre" prefWidth="142.0" text="Semestre" />
+            <TableColumn fx:id="col_escolaridade" prefWidth="174.0" text="Escolaridade" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

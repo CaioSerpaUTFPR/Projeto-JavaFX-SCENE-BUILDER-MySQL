@@ -1,0 +1,40 @@
+CREATE TABLE aluno (id int(4) AUTO_INCREMENT, nome VARCHAR(50) NOT NULL, PRIMARY KEY (id));#
+CREATE TABLE professor (id int(4) AUTO_INCREMENT, nome VARCHAR(50) NOT NULL, PRIMARY KEY (id));#
+CREATE TABLE turma (id int(4) AUTO_INCREMENT, codigo_turma VARCHAR(50) NOT NULL, escolaridade VARCHAR(50) NOT NULL, semestre VARCHAR(50) NOT NULL, ano int(4) NOT NULL, observacao VARCHAR(250) NOT NULL, professorID int, PRIMARY KEY (id), FOREIGN KEY (professorID) REFERENCES professor(id));#
+CREATE TABLE turma_Aluno (id int(4) AUTO_INCREMENT, turmaID int, alunoID int, PRIMARY KEY (id), FOREIGN KEY (turmaID) REFERENCES turma(id), FOREIGN KEY (alunoID) REFERENCES aluno(id));#
+
+INSERT INTO professor (nome) VALUES ('Professor 1');#
+INSERT INTO professor (nome) VALUES ('Professor 2');#
+INSERT INTO professor (nome) VALUES ('Professor 3');#
+INSERT INTO professor (nome) VALUES ('Professor 4');#
+INSERT INTO professor (nome) VALUES ('Professor 5');#
+INSERT INTO aluno (nome) VALUES ('aluno 1');#
+INSERT INTO aluno (nome) VALUES ('aluno 2');#
+INSERT INTO aluno (nome) VALUES ('aluno 3');#
+INSERT INTO aluno (nome) VALUES ('aluno 4');#
+INSERT INTO aluno (nome) VALUES ('aluno 5');#
+INSERT INTO aluno (nome) VALUES ('aluno 6');#
+INSERT INTO aluno (nome) VALUES ('aluno 7');#
+INSERT INTO aluno (nome) VALUES ('aluno 8');#
+INSERT INTO aluno (nome) VALUES ('aluno 9');#
+INSERT INTO aluno (nome) VALUES ('aluno 10');#
+INSERT INTO aluno (nome) VALUES ('aluno 11');#
+INSERT INTO aluno (nome) VALUES ('aluno 12');#
+INSERT INTO aluno (nome) VALUES ('aluno 13');#
+INSERT INTO aluno (nome) VALUES ('aluno 14');#
+INSERT INTO aluno (nome) VALUES ('aluno 15');#
+INSERT INTO aluno (nome) VALUES ('aluno 16');#
+INSERT INTO aluno (nome) VALUES ('aluno 17');#
+INSERT INTO aluno (nome) VALUES ('aluno 18');#
+INSERT INTO aluno (nome) VALUES ('aluno 19');#
+INSERT INTO aluno (nome) VALUES ('aluno 20');#
+INSERT INTO aluno (nome) VALUES ('aluno 21');#
+INSERT INTO aluno (nome) VALUES ('aluno 22');#
+INSERT INTO aluno (nome) VALUES ('aluno 23');#
+INSERT INTO aluno (nome) VALUES ('aluno 24');#
+INSERT INTO aluno (nome) VALUES ('aluno 25');#
+INSERT INTO aluno (nome) VALUES ('aluno 26');#
+INSERT INTO aluno (nome) VALUES ('aluno 27');#
+INSERT INTO aluno (nome) VALUES ('aluno 28');#
+INSERT INTO aluno (nome) VALUES ('aluno 29');#
+INSERT INTO aluno (nome) VALUES ('aluno 30');

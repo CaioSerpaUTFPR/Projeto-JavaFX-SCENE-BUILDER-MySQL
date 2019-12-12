@@ -30,6 +30,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class TurmaController implements Initializable {
 
     List<Turma> list = new ArrayList<>();
+    Turma turma = new Turma();
     ObservableList<Turma> clientes = FXCollections.observableArrayList();
     
     @FXML
@@ -64,7 +65,8 @@ public class TurmaController implements Initializable {
         col_escolaridade.setCellValueFactory(
                 new PropertyValueFactory<>("escolaridade"));
         
-        BancoSingleton banco = BancoSingleton.getInstance();
+        list = turma.getAllClientes();
+        tableview.setItems(FXCollections.observableArrayList(list));
     }    
 
     @FXML

@@ -6,7 +6,10 @@
 package ativadi.model;
 
 import Banco.BancoSingleton;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -26,6 +29,9 @@ public class Turma {
     private String nomeProfessor;
     private BancoSingleton banco = BancoSingleton.getInstance();
 
+    public Turma(){
+        
+    }
     public Turma(int id, String escolaridade, String observacao, String semestre, int ano, int professorID, String codTurma) {
         this.id = id;
         this.escolaridade = escolaridade;
@@ -133,6 +139,31 @@ public class Turma {
             JOptionPane.showMessageDialog(null, "Erro!");
             Logger.getLogger(Turma.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public List<Turma> getAllClientes(){
+        List<Turma> turmas = new ArrayList<>();
+        ResultSet response = null;
+        String sql = "SELECT t.id, t.codigo_turma, t.escolaridade, t.semestre, t.ano, t.observacao, t.professorID, p.nome\n" +
+"FROM turma t, professor p\n" +
+"WHERE t.professorID = p.id;";
+        try {
+            response = banco.executarSQLRetorno(sql);
+            while(response.next()){
+                Turma turma = new Turma(response.getInt("id"), response.getString("escolaridade"), 
+                        response.getString("observacao"), response.getString("semestre"), 
+                        response.getInt("ano"), response.getInt("professorID"), response.getString("codigo_turma"));
+                turma.setNomeProfessor(response.getString("nome"));
+                turmas.add(turma);
+        }
+            return turmas;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro no Bd!");
+            Logger.getLogger(Turma.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Erro!");
+            Logger.getLogger(Turma.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return turmas;  
     }
     
 }

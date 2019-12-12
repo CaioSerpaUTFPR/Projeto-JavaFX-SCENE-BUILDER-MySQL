@@ -50,6 +50,9 @@ public class AtivaDI extends Application {
             case "criarTurma":
                 stage.setScene(criarTurmaTela);
                 break;
+            case "turmas":
+                stage.setScene(turmasTela);
+                break;
         }
     }
 

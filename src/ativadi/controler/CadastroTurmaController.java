@@ -5,6 +5,7 @@
  */
 package ativadi.controler;
 
+import ativadi.AtivaDI;
 import ativadi.model.Professor;
 import ativadi.model.Turma;
 import java.net.URL;
@@ -47,6 +48,8 @@ public class CadastroTurmaController implements Initializable {
     private ComboBox<String> cbSemestre;
     @FXML
     private Button btCriarTurma;
+    @FXML
+    private Button btVoltar;
 
     /**
      * Initializes the controller class.
@@ -103,6 +106,7 @@ public class CadastroTurmaController implements Initializable {
                     cod.setNumTurma("1");
                     turma.setCodTurma(cod.iniciar());
                     turma.criarTurma(turma);
+                    AtivaDI.mudaTela("turmas");
                     break;
                 case "ESCOLARIDADE" :
                     CodTurmaEscolaridade codE = new CodTurmaEscolaridade();
@@ -112,10 +116,18 @@ public class CadastroTurmaController implements Initializable {
                     codE.setNumTurma("1");
                     turma.setCodTurma(codE.iniciar());
                     turma.criarTurma(turma);
+                    AtivaDI.mudaTela("turmas");
+                    //Consolidate Duplicate Conditional Fragments
+                    //OLHAR SLIDE REFATORAÇÃO
                     break;
             }
         }
         
+    }
+
+    @FXML
+    private void voltarTela(ActionEvent event) {
+        AtivaDI.mudaTela("turmas");
     }
     
 }

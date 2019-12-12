@@ -50,6 +50,16 @@ public class BancoSingleton {
         sessao.executeUpdate(sql);
         return true;
     }
+    public ResultSet executarSQLRetorno(String sql) throws SQLException, ClassNotFoundException {
+        ResultSet response = null;
+        if (getConexao()== null) {
+           
+            conectar();
+        }
+        Statement sessao = getConexao().createStatement();
+        response = sessao.executeQuery(sql);
+        return response;
+    }
     public Connection getConexao() {
         return conexao;
     }
